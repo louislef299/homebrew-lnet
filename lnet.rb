@@ -5,20 +5,20 @@
 class Lnet < Formula
   desc ""
   homepage "https://github.com/louislef299/lnet"
-  version "1.4.0"
+  version "1.4.1"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/louislef299/lnet/releases/download/v1.4.0/lnet_1.4.0_Darwin_arm64.tar.gz"
-      sha256 "9d7e039012c2e88e50476a3ab31bda246c4ae0fea864325249e976012a7e2a2f"
+    if Hardware::CPU.intel?
+      url "https://github.com/louislef299/lnet/releases/download/v1.4.1/lnet_1.4.1_Darwin_x86_64.tar.gz"
+      sha256 "cdfdc6ee058fbee72485b0f4642ee623363da8f6340383f20db0675e8447dbce"
 
       def install
         bin.install "lnet"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/louislef299/lnet/releases/download/v1.4.0/lnet_1.4.0_Darwin_x86_64.tar.gz"
-      sha256 "4bc7b9a0e822aae93238dc2d9679770f5b9840c5d8760a05038ccfe2131a4664"
+    if Hardware::CPU.arm?
+      url "https://github.com/louislef299/lnet/releases/download/v1.4.1/lnet_1.4.1_Darwin_arm64.tar.gz"
+      sha256 "58c20471a7bd857de34ee2a297e722f2fbe4451b755a5ab37a91c91ff74394db"
 
       def install
         bin.install "lnet"
@@ -27,25 +27,25 @@ class Lnet < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/louislef299/lnet/releases/download/v1.4.0/lnet_1.4.0_Linux_arm64.tar.gz"
-      sha256 "ba17f4801e44629cea381f4ac19eba330e3a4f00ed49e7a897bcbace4e549935"
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/louislef299/lnet/releases/download/v1.4.1/lnet_1.4.1_Linux_arm.tar.gz"
+      sha256 "c157f90319a3c3159107cb4beefd38b819536df9b9cc86c6b260315724f268fe"
 
       def install
         bin.install "lnet"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/louislef299/lnet/releases/download/v1.4.0/lnet_1.4.0_Linux_x86_64.tar.gz"
-      sha256 "212c48ab28938c866f553ecdd8377326e888e8178f07f5d384602badc99494a2"
+      url "https://github.com/louislef299/lnet/releases/download/v1.4.1/lnet_1.4.1_Linux_x86_64.tar.gz"
+      sha256 "3cc5942355c23255fbed06bca5ae499affab4932255dab77316cb98e948f18be"
 
       def install
         bin.install "lnet"
       end
     end
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/louislef299/lnet/releases/download/v1.4.0/lnet_1.4.0_Linux_arm.tar.gz"
-      sha256 "a0918debc073c0b50ab5362346aaab59c10024803462d9a8e7a139fc3e2955f5"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/louislef299/lnet/releases/download/v1.4.1/lnet_1.4.1_Linux_arm64.tar.gz"
+      sha256 "d6f92172a41e44e6f17c2e5587e8c1898098f38f5f00eb0f4079b16156f2df91"
 
       def install
         bin.install "lnet"
