@@ -5,29 +5,47 @@
 class Lnet < Formula
   desc ""
   homepage "https://github.com/louislef299/lnet"
-  version "1.4.11"
-  depends_on :linux
+  version "1.5.0"
 
-  on_linux do
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/louislef299/lnet/releases/download/v1.4.11/lnet_1.4.11_Linux_arm.tar.gz"
-      sha256 "8392ef7641eadd694a37c965d7029ff7f528aa9ee1c3282ba5a468268b3fa74d"
+  on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/louislef299/lnet/releases/download/v1.5.0/lnet_1.5.0_Darwin_arm64.tar.gz"
+      sha256 "7d83ce44228c5263c3a7d21e879ce3f5b6ef6b56e9accff3629b9525280a1bea"
 
       def install
         bin.install "lnet"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/louislef299/lnet/releases/download/v1.4.11/lnet_1.4.11_Linux_x86_64.tar.gz"
-      sha256 "70a297b14b2d2b1fca93134c7a48ba92c53ada52c6c0cb8b110f5183214b8b57"
+      url "https://github.com/louislef299/lnet/releases/download/v1.5.0/lnet_1.5.0_Darwin_x86_64.tar.gz"
+      sha256 "14d221e45c399889a853b1abf8a04c3c36d662cfc59aa4af0a13fd2c6875a656"
 
       def install
         bin.install "lnet"
       end
     end
+  end
+
+  on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/louislef299/lnet/releases/download/v1.4.11/lnet_1.4.11_Linux_arm64.tar.gz"
-      sha256 "b05d4de4b48151df354d9ece5bc2cf385ea3a0344e6e2c55b951c6b93695862e"
+      url "https://github.com/louislef299/lnet/releases/download/v1.5.0/lnet_1.5.0_Linux_arm64.tar.gz"
+      sha256 "6c40af6dcb2deb44ba4dfe4c849963e07da19095f1cf5609047ab88cbd49fcf7"
+
+      def install
+        bin.install "lnet"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/louislef299/lnet/releases/download/v1.5.0/lnet_1.5.0_Linux_x86_64.tar.gz"
+      sha256 "292d0cec6889f977743bada3e70a29b3fd7d388380f234aa4a87a0335962a9ff"
+
+      def install
+        bin.install "lnet"
+      end
+    end
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/louislef299/lnet/releases/download/v1.5.0/lnet_1.5.0_Linux_arm.tar.gz"
+      sha256 "efd2ef46e5f71a8779bf77f9ff09cd377476f9cbf7a7c1efc7d76bdef4c04ae6"
 
       def install
         bin.install "lnet"
